@@ -1,1 +1,1 @@
-var App = angular.module('App', ['ngRoute', 'facebook']);
+var App = angular.module('App', ['ngRoute', 'facebook', 'ui.sortable']);

@@ -1,0 +1,28 @@
+<h1>Set Lineups</h1>
+
+
+<div ng-app="app" ng-controller="GameCtrl" class="container" ng-init="init_lineup()">
+	<div>
+		<div ui-sortable="lineupSortableOptions" class="apps-container screen floatleft" ng-model="position_players_home">
+	        <div class="app app-home" ng-repeat="app in position_players_home">{{$index + 1}} {{app.name}} - {{app.position}}</div>
+	     </div>
+
+		<div ui-sortable="lineupSortableOptions" class="apps-container screen floatright" ng-model="position_players_away">
+	        <div class="app app-away" ng-repeat="app in position_players_away">{{$index + 1}} {{app.name}} - {{app.position}}</div>
+	        </div>
+	    <div style="clear: both;"></div>
+	</div>
+    <hr/>
+    <div style="text-align: center">
+        <button class="submit-button" ng-click="set_lineups()">submit</button>
+        <hr/>
+
+
+	<!-- <div class="floatleft">
+	    <div ui-sortable="lineupSortableOptions" ng-model="players_home" class="apps-container screen floatleft">
+	    	<div class="app app-away" ng-repeat="app in players_home">{{$index}} {{app.name}} - {{app.position}}</div>
+            </div>
+	    </div>
+	</div> -->
+
+</div>

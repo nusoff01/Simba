@@ -1,129 +1,392 @@
-html, body {
-    font-family: 'Alegreya Sans', sans-serif;
-    background-color: #5E5E5E;
+html {
+    background-color: white;
+    font: helvetica;
+}
+
+.submit-button {
+    margin: 0 auto;
+    font-size: 24px;
+    text-align:center;
+    background-color: yellow;
+}
+
+table, th, td {
+    border: 1px solid black;
+    margin-left:auto; 
+    margin-right:auto;
+    text-align:center;
+}
+
+h2, h4, h5 {
+    margin: 5px;
+}
+
+#header-table {
+    border: none;
+    width:100%;
+    text-align:center;
+}
+#header-table.tr, #header-table.td {
+    border:none;
+}
+
+.mainframe-table .mainframe-table tr, .mainframe-table td {
+    border: none;
+}   
+
+.mainframe-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+
+ul[dnd-list], ul[dnd-list] > li { 
+    position: relative;
+}
+
+
+/*FROM DRAGGABLE ANGULAR DEMO*/
+
+/**
+ * For the correct positioning of the placeholder element, the dnd-list and
+ * it's children must have position: relative
+ */
+.typesDemo ul[dnd-list],
+.typesDemo ul[dnd-list] > li {
+    position: relative;
+}
+
+/**
+ * The dnd-list should always have a min-height,
+ * otherwise you can't drop to it once it's empty
+ */
+.typesDemo ul[dnd-list] {
+    min-height: 42px;
+    padding-left: 0px;
+}
+
+/**
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+.typesDemo ul[dnd-list] .dndDraggingSource {
+    display: none;
+}
+
+/**
+ * An element with .dndPlaceholder class will be
+ * added to the dnd-list while the user is dragging
+ * over it.
+ */
+.typesDemo ul[dnd-list] .dndPlaceholder {
+    display: block;
+    background-color: #ddd;
+    min-height: 42px;
+}
+
+/**
+ * The dnd-lists's child elements currently MUST have
+ * position: relative. Otherwise we can not determine
+ * whether the mouse pointer is in the upper or lower
+ * half of the element we are dragging over. In other
+ * browsers we can use event.offsetY for this.
+ */
+.typesDemo ul[dnd-list] li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    
+    /* Disable text selection if item is not draggable */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/**
+ * Gender-specifc background
+ */
+.typesDemo ul[dnd-list] li.background-man {
+    background-color: #CAE0FC;
+}
+
+.typesDemo ul[dnd-list] li.background-woman {
+    background-color: #FFE2F5;
+}
+
+.typesDemo ul[dnd-list] input.background-man {
+    background-color: #D8E9FF;
+    color: #2F4D99;
+}
+
+.typesDemo ul[dnd-list] input.background-woman {
+    background-color: #FFF0FA;
+    color: #D84FA7;
+}
+
+/**
+ * Handle positioning
+ */
+.typesDemo .handle {
+    cursor: move;
+    position: absolute;
+    top: 14px;
+}
+
+.typesDemo .name {
+    margin-left: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*SIMPLE DEMO*/
+
+
+
+
+/**
+ * For the correct positioning of the placeholder element, the dnd-list and
+ * it's children must have position: relative
+ */
+.simpleDemo ul[dnd-list],
+.simpleDemo ul[dnd-list] > li {
+    position: relative;
+}
+
+/**
+ * The dnd-list should always have a min-height,
+ * otherwise you can't drop to it once it's empty
+ */
+.simpleDemo ul[dnd-list] {
+    min-height: 42px;
+    padding-left: 0px;
+}
+
+/**
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+.simpleDemo ul[dnd-list] .dndDraggingSource {
+    display: none;
+}
+
+/**
+ * An element with .dndPlaceholder class will be
+ * added to the dnd-list while the user is dragging
+ * over it.
+ */
+.simpleDemo ul[dnd-list] .dndPlaceholder {
+    display: block;
+    background-color: #ddd;
+    min-height: 42px;
+}
+
+/**
+ * The dnd-lists's child elements currently MUST have
+ * position: relative. Otherwise we can not determine
+ * whether the mouse pointer is in the upper or lower
+ * half of the element we are dragging over. In other
+ * browsers we can use event.offsetY for this.
+ */
+.simpleDemo ul[dnd-list] li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+}
+
+/**
+ * Show selected elements in green
+ */
+.simpleDemo ul[dnd-list] li.selected {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+
+
+
+
+
+/*SORTABLE DEMO*/
+
+.list {
+    list-style: none outside none;
+    margin: 10px 0 30px;
+}
+
+.apps-container {
+  border: 2px dashed blue;
+  margin: 10px 10px 0 0;
+  padding: 5px;
+  min-width:200px;
+  min-height:50px;
+}
+
+.apps-pos-container {
+  
+  min-width:140px;
+  min-height:40px;
+}
+
+.app {
+    width: 170px;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: 2px solid #444;
+    border-radius: 5px;
+
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    cursor: move;
+}
+
+.app-home {
+    background-color: lightblue;
+}
+
+.app-away {
+    background-color: pink;
+}
+
+.app-pos {
+    width: 120px;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: 2px solid #444;
+    border-radius: 5px;
+    background-color: white;
+
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    cursor: move;
+}
+
+
+
+
+.apps-container {
+  border: 2px dashed blue;
+  margin: 10px 10px 0 0;
+  padding: 5px;
+}
+
+
+/***  Extra ***/
+
+body {
+    font-family: Verdana, 'Trebuchet ms', Tahoma;
+}
+
+.logList {
+    margin-top: 20px;
+    width: 250px;
+    min-height: 300px;
+    padding: 5px 15px;
+    border: 5px solid #000;
+    border-radius: 15px;
+}
+
+.logItem {
+  margin-bottom: 10px;
+}
+
+.logList:before {
+    content: 'log';
+    padding: 0 5px;
+    position: relative;
+    top: -1.1em;
+    background-color: #FFF;
 }
 
 .container {
+    /*width: 750px;*/
     margin: auto;
-    position: relative;
-    width: 960px;
 }
 
-.main {
-    box-sizing: border-box;
-    background-color: #F0F0F0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-    padding: 50px;
-    margin-top: 30px;
-}
-
-.main h1 {
-    font-weight: 400;
-    margin: 10px 0;
-    font-family: 'Architects Daughter', cursive;
-    font-size: 40px;
-    background-color: #5E5E5E;
-    padding: 10px;
-    box-sizing: border-box;
-    color: #FFF;
+h1, h2 {
     text-align: center;
 }
 
-.main input {
-    padding: 7px;
-    border: 1px solid rgba(0, 0, 0, 0.13);
-    outline: none;
-    margin: 0;
-    min-width: 200px;
+.floatleft {
+  float: left;
 }
 
-.main p {
-    font-weight: 300;
-    font-size: 18px;
+.floatright {
+  float: right;
 }
 
-.customer-cards {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    clear: both;
-    display: inline-block;
+.clear {
+  clear: both;
 }
 
-.customer-cards li {
-    width: 150px;
-    height: 150px;
-    float: left;
-    /*background-color: #EEE;*/
-    background-color: #F7F7F7;
-    margin-right: 27px;
-    margin-bottom: 27px;
-    box-sizing: border-box;
-    display: table;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.06);
-
-    -webkit-transition: all 0.2s ease-in-out;
-       -moz-transition: all 0.2s ease-in-out;
-        -ms-transition: all 0.2s ease-in-out;
-         -o-transition: all 0.2s ease-in-out;
-            transition: all 0.2s ease-in-out;
+.container.wide {
+    width: 620px;
 }
 
-.customer-cards li:hover {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+
+
+
+
+
+
+#field-table {
+    width:700px;
+    height:700px;
+    text-align:center;
+    border:none;
+    table-layout:fixed;
+
+}
+#field-table td h3{
+    background-color: red;
 }
 
-.customer-cards li p {
-    margin: 0;
-    text-align: center;
-    /*display: table-cell; 
-    vertical-align: middle;*/
-    clear: both;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.45);
-    color: #FFF;
-    padding: 2px;
-    box-sizing: border-box;
+.base {
+    width = 150px;
+    height = 150px;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: lightgreen;
+    font-size: 24px;
+    border-radius: 25px 
+}
+.pitcher {
+    width = 150px;
+    height = 150px;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: lightblue;
+    font-size: 24px;
+    border-radius: 25px 
 }
 
-.customer-cards li:nth-child(5n+5) {
-    margin-right: 0;
-}
 
-.new {
-    border-top: 1px solid #c3c3c3;
-}
-
-.preview p {
-    margin: 0;
-}
-
-.light {
-    color: #B9B5B5;
-}
-
-.light-red {
-    color: #FF3A3A;
-}
-
-footer {
-    text-align: right;
-    padding-top: 5px;
-}
-
-footer a {
-    color: #FFF;
-    text-decoration: none;
-    font-weight: 300;
-    padding: 5px;
-    box-sizing: border-box;
-}
-
-footer a:hover {
-    background-color: #FFF;
-    color: #000;
-}

@@ -1,0 +1,24 @@
+<h1>LinuSimbae</h1>
+<h2>Pick your teams</h2>
+<hr/>
+<div ng-app="app" ng-controller="GameCtrl" ng-init="initGame()"class="container">
+    <div>
+        <div ui-sortable="sortableOptions" class="apps-container screen floatleft" ng-model="players_home">
+            <div class="app app-home" ng-repeat="app in players_home">{{$index + 1}} {{app.name}} - {{app.position}}</div>
+        </div>
+        <div ui-sortable="sortableOptions" class="apps-container screen floatright" ng-model="players_away">
+            <div class="app app-away" ng-repeat="app in players_away">{{$index + 1}} {{app.name}} - {{app.position}} <a ng-click='popup()'>[stats]</a></div>
+            </div>
+        <div style="clear: both;"></div>
+    </div>
+    <hr/>
+    <div style="text-align: center">
+        <button class="submit-button" ng-click="set_roster()">submit</button>
+        <hr/>
+    </div>
+    <div ui-sortable="sortableOptions" class="apps-container apps-pos-container screen floatleft" ng-model="pos" ng-repeat="pos in posScreens">
+        <div class="app app-pos" ng-repeat="app in pos">{{app.name}} - {{app.position}}</div>
+    </div>
+
+    <div class="clear"></div>
+</div>

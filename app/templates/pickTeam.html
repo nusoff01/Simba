@@ -1,0 +1,19 @@
+<h1>Simba</h1>
+<h2>Pick your Team</h2>
+
+ 
+
+<div ng-app="app" ng-controller="GameCtrl" class="container">
+
+    <div>
+        <div ui-sortable="sortableOptions" id="screen-{{$index}}" class="apps-container screen" ng-model="screen" ng-repeat="screen in playerScreens">
+          <div class="app" ng-repeat="app in screen">{{app.name}} - {{app.position}}</div>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    <button class="button">Set Lineup</button>
+  
+    <div class="clear"></div>
+
+    {{player_list}}
+</div>

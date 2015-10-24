@@ -1,0 +1,135 @@
+<link rel="stylesheet" type="text/css" href="assets/css/app.css">
+
+<h1>SIMBAAAA</h1>
+
+<div ng-app="app" ng-controller="GameCtrl" ng-init="init_play()"class="container">
+	<table id="header-table" style="border:none;">
+		<tr style="border:none;"><td style="border:none;">
+			<h2>AWAY</h2><br/><h2>{{game.score.away}}</h2>
+		</td>
+		<td style="border:none;">
+			<table class="stats-table">
+			  <tr class="stats-table">
+			    <td></td>
+			    <td ng-model="score" ng-repeat="score in game.score_by_inning.away track by $index"><h5>{{$index + 1}}</h5></td>
+			    <td><h5>R</h5></td>
+			    <td><h5>H</h5></td>
+			    <td><h5>E</h5></td>
+			  </tr>
+			  <tr class="stats-table">
+			    <td><h4>Away</h4></td>
+			    <td ng-model="score" ng-repeat="score in game.score_by_inning.away track by $index"><h5>{{score}}</h5></td>
+			    <td><h5>{{game.score.away}}</h5></td>
+			    <td><h5>{{game.hits.away}}</h5></td>
+			    <td><h5>{{game.errors.away}}</h5></td>
+			  </tr>
+			  <tr class="stats-table">
+			    <td><h4>Home</h4></td>
+			    <td ng-model="score" ng-repeat="score in game.score_by_inning.home track by $index"><h5>{{score}}</h5></td>
+			    <td><h5>{{game.score.home}}</h5></td>
+			    <td><h5>{{game.hits.home}}</h5></td>
+			    <td><h5>{{game.errors.home}}</h5></td>
+			  </tr>
+			</table>
+			<h3>inn: {{inning_display(game.game_state.inning, game.game_state.team_batting)}}</h3>
+		</td>
+		<td style="border:none;">
+			<h2>HOME</h2><br/><h2>{{game.score.home}}</h2>
+		</td></tr>
+	</table>
+	<hr/>
+	<table class="mainframe-table" style="border:none;">
+		<tr class="mainframe-table">
+			<td class="mainframe-table" style="width:200px;">
+				<table>
+					<tr>
+						<td>
+							AWAY
+						</td>
+						<td>
+							AB
+						</td>	
+						<td>
+							R
+						</td>
+						<td>
+							H
+						</td>
+					</tr>
+					<tr ng-repeat="box in game.box_score.away">
+						<td>
+							{{box.name}}
+						</td>
+						<td>
+							{{box.AB}}
+						</td>	
+						<td>
+							{{box.R}}
+						</td>
+						<td>
+							{{box.H}}
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td >
+				<button class="submit-button" ng-click="play_atbat()">run an at bat</button>
+				<h2>{{play_outcome_text}}</h2>
+				<table id="field-table">
+					<tr>
+						<td></td>
+						<td ng-if="!game.game_state.runners[2]['name']">2nd: open</td>
+						<td ng-if="game.game_state.runners[2]['name']"><div class="base">2nd: {{game.game_state.runners[2].name}}</div></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td ng-if="!game.game_state.runners[3]['name']">3rd: open</td>
+						<td ng-if="game.game_state.runners[3]['name']"><div class="base">3rd: {{game.game_state.runners[3].name}}</div></td>
+						<td><div class="pitcher"> P: {{game.game_state.pitcher.name}}</div></td>
+						<td ng-if="!game.game_state.runners[1]['name']">1st: open</td>
+						<td ng-if="game.game_state.runners[1]['name']"><div class="base">1st: {{game.game_state.runners[1].name}}</div></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><div class="base">Batter: {{game.game_state.batter.name}}</div></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+			<td style="width:200px;">
+				<table>
+					<tr>
+						<td>
+							HOME
+						</td>
+						<td>
+							AB
+						</td>	
+						<td>
+							R
+						</td>
+						<td>
+							H
+						</td>
+					</tr>
+					<tr ng-repeat="box in game.box_score.home">
+						<td>
+							{{box.name}}
+						</td>
+						<td>
+							{{box.AB}}
+						</td>	
+						<td>
+							{{box.R}}
+						</td>
+						<td>
+							{{box.H}}
+						</td>
+					</tr>
+
+				</table>
+			</td>	
+		</tr>
+
+	</table>
+</div>
